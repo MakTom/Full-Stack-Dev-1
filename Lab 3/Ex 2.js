@@ -1,6 +1,6 @@
-let greeter = (myArray, counter) => {
-    let greetText = "Hello";
-    for(const counter in myArray){
+const greeter = (myArray, counter) => {
+    const greetText = "Hello";
+    for(const counter of myArray){
         console.log(`${greetText} ${myArray[counter]}`);
     }
 }

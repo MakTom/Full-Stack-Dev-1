@@ -1,3 +1,3 @@
 const colors=['red','green','blue'];
-let capitalizedColors = colors.map(name => name.charAt(0).toUpperCase() + name.slice(1));
+const capitalizedColors = colors.map(clr => clr.charAt(0).toUpperCase() + clr.slice(1));
 console.log(capitalizedColors);

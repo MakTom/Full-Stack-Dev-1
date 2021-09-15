@@ -1,5 +1,5 @@
-let difference=(num) => {
-    let absDifference = Math.abs(num - 13);
+const difference=(num) => {
+    const absDifference = Math.abs(num - 13);
     if(num > 13){
         return absDifference*2;
     }
