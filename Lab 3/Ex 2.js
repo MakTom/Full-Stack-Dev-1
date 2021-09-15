@@ -1,6 +1,6 @@
 const greeter = (myArray, counter) => {
     const greetText = "Hello";
-    for(const counter of myArray){
+    for(const counter in myArray){
         console.log(`${greetText} ${myArray[counter]}`);
     }
 }
