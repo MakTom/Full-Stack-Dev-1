@@ -1,7 +1,7 @@
 const say = require('say');
 
-function sayHello() {
+function saySorry() {
     say.speak("I’m sorry, Dave");
   }
   
-  setTimeout(sayHello, 5000);
+  setTimeout(saySorry, 5000); 
