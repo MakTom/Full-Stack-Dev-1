@@ -9,9 +9,11 @@ router.get('/', function(req, res, next) {
 });
 
 /* Post users. */
-router.post('/names', urlCodedParser,function(req, res, next) {
+console.log("Before post");
+router.post('/', urlCodedParser,function(req, res, next) {
+  console.log("Inside post");
   console.log(req.body);
-  res.send('respond on a Post');
+  //res.send('respond on a Post');
 });
 
 module.exports = router;
