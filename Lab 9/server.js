@@ -3,7 +3,8 @@ const http = require("http"),
   fs = require("fs"),
   io = require("socket.io"),
   mongoose = require("mongoose"),
-  Restaurants = require("./model/restaurant");
+  Restaurants = require("./model/restaurant"),
+  Orders = require("./model/order");
 
   const connectionString = "mongodb://localhost:27017/";
   mongoose.connect(connectionString, { useNewUrlParser: true } )
@@ -74,6 +75,37 @@ ioServer.on("connection", function(socket) {
         socket.emit("restaurants-data", data);
       }
     });
+  });
 
+
+  socket.on("get-orders", () => {
+    console.log("server - get-order called");
+
+    Orders.find((error,documents) => {
+      if(error){
+        console.log(`Error Occurred on Order.Find(): ${error}`);
+      }
+      else{
+        console.log(`Orders.find() returned Documents: ${documents}`);
+        const data = documents.map(x => x => x.name);
+        socket.emit("Orders-data", data);
+      }
+    });
+  });
+
+  socket.on("add-orders", () => {
+    console.log("server - add-Order called");
+
+    const order = new Orders({ customername: 'Test1' });
+    order.save(function (err) {
+      if (err) {
+        handleError(err);
+      }
+      else{
+        console.log(`Orders.save() completed`);
+        socket.emit("add-orders");
+      }
+      
+    });
   });
 });

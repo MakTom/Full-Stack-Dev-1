@@ -3,10 +3,7 @@ const mongoose = require("mongoose");
 const orderSchema = new mongoose.Schema({
     orderId: String,
     item: String,
-    customername:{
-        type:String,
-        require: true
-    }
+    customername:String,
 });
 
 const order = mongoose.model('orders',orderSchema,'order');

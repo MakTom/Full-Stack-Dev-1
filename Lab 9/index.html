@@ -26,16 +26,14 @@
       socket.on('restaurants-data', function(data) 
       { console.log(`restaurant data received from server: ${data}`)});
       });
-
-     
   
       const connect = () => { socket.connect(); }  
       const disconnect = () => { socket.disconnect(); }
       const send = () => { socket.send("Hello Server!");};
       // set up socket emitters below..
       const getRestaurants = () => socket.emit('get-restaurants');
-      const getOrders = () => alert('Get Orders');
-      const createOrder = () => alert('Place Order!');
+      const getOrders = () => socket.emit('get-orders');
+      const createOrder = () => socket.emit('add-orders');
     </script>
     
     <h1>Socket.io Lab</h1>
