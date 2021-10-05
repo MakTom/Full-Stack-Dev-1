@@ -1,5 +1,5 @@
 {
-  "name": "ex-2",
+  "name": "chatapplication",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
